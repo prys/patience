@@ -1,5 +1,6 @@
 import random
 
+# This function prints out the current layout of the card table.
 def tablePrint(curTable):
 	print('')
 	print('Table layout: ')
@@ -11,6 +12,7 @@ def tablePrint(curTable):
 			print(curTable[x], end='')
 	print()
 
+# Check whether 2 x non-picture cards add up to 12
 def checkTwelve(curTable):
 	for x in range(len(curTable)):
 		if isinstance(curTable[x][0], int):
@@ -20,6 +22,7 @@ def checkTwelve(curTable):
 						return(x, y)
 	return(99,99)
 
+# Check whether the table has 4 of the same picture cards (e.g. 4 x jacks)
 def checkFourOfKind(curTable):
 	for x in range(len(curTable)):
 		found = 1
@@ -35,6 +38,7 @@ def checkFourOfKind(curTable):
 					return(arrFound)
 	return([99,99,99,99])
 
+# Check whether there is a picture card straight (i.e. jack, queen, king, ace) in the same suit
 def checkStraight(curTable):
 	for x in range(len(curTable)):
 		arrFound = [99] * 4
@@ -51,6 +55,7 @@ def checkStraight(curTable):
 							return(arrFound)
 	return([99,99,99,99])
 
+# Create a pack of cards and shuffle
 def createPack():
 	curCard = 0
 	pack = [[]]
@@ -69,6 +74,7 @@ def createPack():
 	random.shuffle(pack)
 	return(pack)
 
+# Start playing...
 winCount = 0
 attempts = 0
 while winCount < 10000:
