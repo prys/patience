@@ -1,0 +1,8 @@
+Create and shuffle a pack of cards
+start game
+deal grid
+while cards left in hand
+  check whether cards can be covered (i.e. 2 x cards add up to 12 or 4 x cards)
+    if so cover them
+  if not then register loss
+register win
