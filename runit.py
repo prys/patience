@@ -128,3 +128,4 @@ while winCount < 10000:
 
 print('The success rate was : ' + '{:.2f}'.format(winRatio) + ' %')
 print('Maximum attempts between wins: ' + str(maxAttempts))
+print('Games played: ' + str(games))
