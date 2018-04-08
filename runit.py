@@ -93,23 +93,13 @@ while games < 100000:
 		foundStraight = checkStraight(table)
 
 		if (foundFour[0] != 99) & (len(thisPack) > 2):
-			table[foundFour[0]] = thisPack[0]
-			del thisPack[0]
-			table[foundFour[1]] = thisPack[0]
-			del thisPack[0]
-			table[foundFour[2]] = thisPack[0]
-			del thisPack[0]
-			table[foundFour[3]] = thisPack[0]
-			del thisPack[0]
+			for i in range (len(foundFour)):
+				table[foundFour[i]] = thisPack[0]
+				del thisPack[0]
 		elif (foundStraight[0] != 99) & (len(thisPack) > 2):
-			table[foundStraight[0]] = thisPack[0]
-			del thisPack[0]
-			table[foundStraight[1]] = thisPack[0]
-			del thisPack[0]
-			table[foundStraight[2]] = thisPack[0]
-			del thisPack[0]
-			table[foundStraight[3]] = thisPack[0]
-			del thisPack[0]
+			for i in range (len(foundStraight)):
+				table[foundStraight[i]] = thisPack[0]
+				del thisPack[0]
 		elif cardOne != 99:
 			table[cardOne] = thisPack[0]
 			del thisPack[0]
