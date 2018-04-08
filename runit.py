@@ -79,7 +79,7 @@ winCount = 0
 games = 0
 maxAttempts = 0
 attempts = 0
-while winCount < 10000:
+while games < 1000000:
 	games += 1
 	thisPack = createPack()
 	attempts += 1
