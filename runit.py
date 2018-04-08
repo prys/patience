@@ -76,10 +76,13 @@ def createPack():
 
 # Start playing...
 winCount = 0
+games = 0
+maxAttempts = 0
 attempts = 0
 while winCount < 10000:
-	attempts += 1
+	games += 1
 	thisPack = createPack()
+	attempts += 1
 	table = [0] * 12
 	for x in range(12):
 		table[x] = thisPack[0]
@@ -116,8 +119,12 @@ while winCount < 10000:
 			break
 	if len(thisPack) == 0:
 		winCount += 1
-		winRatio = winCount / attempts * 100
+		winRatio = winCount / games * 100
 		if (winCount % 100) == 0:
-			print(winCount)
+			print(str(winCount) + ' wins')
+		attempts = 0
+	if attempts > maxAttempts:
+		maxAttempts = attempts
 
-print('The success rate was : ' + str(winRatio) + '')
+print('The success rate was : ' + '{:.2f}'.format(winRatio) + ' %')
+print('Maximum attempts between wins: ' + str(maxAttempts))
