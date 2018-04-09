@@ -28,9 +28,9 @@ def checkTwelve(curTable):
 # Check whether the table has 4 of the same picture cards (e.g. 4 x jacks)
 def checkFourOfKind(curTable):
 	for x in range(len(curTable)):
-		found = 1
 		arrFound = [99] * 4
 		if isinstance(curTable[x][0], str):
+			found = 1
 			arrFound[found-1] = x
 			for y in range (x+1, len(curTable)):
 				if isinstance(curTable[y][0], str):
