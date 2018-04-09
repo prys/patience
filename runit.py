@@ -19,8 +19,8 @@ def checkTwelve(curTable):
 			for y in range (x+1, len(curTable)):
 				if isinstance(curTable[y][0], int):
 					if curTable[x][0] + curTable[y][0] == 12:
-						return(x, y)
-	return(99,99)
+						return([x, y])
+	return()
 
 # Check whether the table has 4 of the same picture cards (e.g. 4 x jacks)
 def checkFourOfKind(curTable):
@@ -34,9 +34,9 @@ def checkFourOfKind(curTable):
 					if curTable[x][0] == curTable[y][0]:
 						found += 1
 						arrFound[found-1] = y
-				if found == 4:
-					return(arrFound)
-	return([99,99,99,99])
+						if found == 4:
+							return(arrFound)
+	return()
 
 # Check whether there is a picture card straight (i.e. jack, queen, king, ace) in the same suit
 def checkStraight(curTable):
@@ -53,7 +53,7 @@ def checkStraight(curTable):
 						arrFound[found-1] = y
 						if found == 4:
 							return(arrFound)
-	return([99,99,99,99])
+	return()
 
 # Create a pack of cards and shuffle
 def createPack():
@@ -88,23 +88,21 @@ while games < 100000:
 		table[x] = thisPack[0]
 		del thisPack[0]
 	while len(thisPack) > 0:
-		cardOne, cardTwo = checkTwelve(table)
+		foundTwelve = checkTwelve(table)
 		foundFour = checkFourOfKind(table)
 		foundStraight = checkStraight(table)
-
-		if (foundFour[0] != 99) & (len(thisPack) > 2):
+		if foundTwelve:
+			for i in range (len(foundTwelve)):
+				table[foundTwelve[i]] = thisPack[0]
+				del thisPack[0]
+		elif foundFour and len(thisPack) > 2:
 			for i in range (len(foundFour)):
 				table[foundFour[i]] = thisPack[0]
 				del thisPack[0]
-		elif (foundStraight[0] != 99) & (len(thisPack) > 2):
+		elif foundStraight and len(thisPack) > 2:
 			for i in range (len(foundStraight)):
 				table[foundStraight[i]] = thisPack[0]
 				del thisPack[0]
-		elif cardOne != 99:
-			table[cardOne] = thisPack[0]
-			del thisPack[0]
-			table[cardTwo] = thisPack[0]
-			del thisPack[0]
 		else:
 			break
 	if len(thisPack) == 0:
