@@ -1,3 +1,6 @@
+# This is a program to play through the 12's card patience game multiple times.
+# The games is played a number of times, and the success rate is calculated
+
 import random
 
 # This function prints out the current layout of the card table.
@@ -75,11 +78,12 @@ def createPack():
 	return(pack)
 
 # Start playing...
+numGames = int(input('How many games do you want to play?     '))
 winCount = 0
 games = 0
 maxAttempts = 0
 attempts = 0
-while games < 100000:
+while games < numGames:
 	games += 1
 	thisPack = createPack()
 	attempts += 1
@@ -107,13 +111,14 @@ while games < 100000:
 			break
 	if len(thisPack) == 0:
 		winCount += 1
-		winRatio = winCount / games * 100
-		if (winCount % 100) == 0:
-			print(str(winCount) + ' wins')
 		attempts = 0
 	if attempts > maxAttempts:
 		maxAttempts = attempts
+	winRatio = winCount / games * 100
+	if (winCount % 100) == 0 and winCount > 0:
+		print(str(winCount) + ' wins')
 
+print('Total number of wins: ' + str(winCount))
 print('The success rate was : ' + '{:.2f}'.format(winRatio) + ' %')
 print('Maximum attempts between wins: ' + str(maxAttempts))
 print('Games played: ' + str(games))
