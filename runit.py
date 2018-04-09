@@ -4,11 +4,11 @@
 import random
 
 # This function prints out the current layout of the card table.
-def tablePrint(curTable):
+def tablePrint(curTable, tableSz):
 	print('')
 	print('Table layout: ')
 	print('')
-	for x in range(12):
+	for x in range(tableSz):
 		if (x +1) % 4 == 0:
 			print(curTable[x])
 		else:
@@ -83,12 +83,13 @@ winCount = 0
 games = 0
 maxAttempts = 0
 attempts = 0
+tableSize = 12
 while games < numGames:
 	games += 1
 	thisPack = createPack()
 	attempts += 1
-	table = [0] * 12
-	for x in range(12):
+	table = [0] * tableSize
+	for x in range(tableSize):
 		table[x] = thisPack[0]
 		del thisPack[0]
 	while len(thisPack) > 0:
