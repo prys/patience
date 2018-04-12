@@ -1,3 +1,5 @@
+#! /usr/local/bin/python3
+
 # This is a program to play through the 12's card patience game multiple times.
 # The games is played a number of times, and the success rate is calculated
 
@@ -119,7 +121,9 @@ while games < numGames:
 	if (winCount % 100) == 0 and winCount > 0:
 		print(str(winCount) + ' wins')
 
-print('Total number of wins: ' + str(winCount))
-print('The success rate was : ' + '{:.2f}'.format(winRatio) + ' %')
-print('Maximum attempts between wins: ' + str(maxAttempts))
-print('Games played: ' + str(games))
+width = 40
+print('\n\n' +'Statistics'.center(50,'-'))
+print('Total number of wins: '.ljust(width) + str(winCount).rjust(10))
+print('The success rate was: '.ljust(width) + '{:.2f}'.format(winRatio).rjust(10) + '%')
+print('Maximum attempts between wins: '.ljust(width) + str(maxAttempts).rjust(10))
+print('Games played: '.ljust(width) + str(games).rjust(10))
