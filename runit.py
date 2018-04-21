@@ -115,11 +115,12 @@ while games < numGames:
 	if len(thisPack) == 0:
 		winCount += 1
 		attempts = 0
+		if (winCount % 100) == 0 and winCount > 0:
+			print(str(winCount) + ' wins')
 	if attempts > maxAttempts:
 		maxAttempts = attempts
 	winRatio = winCount / games * 100
-	if (winCount % 100) == 0 and winCount > 0:
-		print(str(winCount) + ' wins')
+
 
 width = 40
 print('\n\n' +'Statistics'.center(50,'-'))
