@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3
+#! python3
 
 # This is a program to play through the 12's card patience game multiple times.
 # The games is played a number of times, and the success rate is calculated
