@@ -95,6 +95,7 @@ while games < numGames:
 		table[x] = thisPack[0]
 		del thisPack[0]
 	while len(thisPack) > 0:
+		tablePrint(table, len(table))
 		foundTwelve = checkTwelve(table)
 		foundFour = checkFourOfKind(table)
 		foundStraight = checkStraight(table)
